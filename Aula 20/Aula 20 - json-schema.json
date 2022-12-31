@@ -1,0 +1,47 @@
+
+//Json Schema - 1
+{
+  "type" : "object",
+  "properties" : {
+    "petName" : {
+      "type" : "string"
+    },
+    "petOwner" : {
+      "type" : "string"
+    },
+    "time" : {
+      "type" : "string"
+    },
+    "petAge" : {
+      "type" : "number"
+    }
+  }
+}
+
+//Json Schema - 2
+{
+  "type" : "object",
+  "properties" : {
+    "petName" : {
+      "type" : "string"
+    },
+    "petOwner" : {
+      "type" : "string"
+    },
+    "time" : {
+      "type" : "string"
+    },
+    "petAge" : {
+      "type" : "number"
+    }
+  },
+  "required": [ "petName", "petOwner", "time","petAge" ]
+}
+
+//Payload
+{
+  "petName" : "Floki",
+  "petOwner" : "Jefferson Rodrigues",
+  "time" : "2022/12/24 10:00:00",
+  "petAge" : 4
+}

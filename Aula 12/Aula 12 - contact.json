@@ -1,0 +1,8 @@
+{
+    "store" : "PetStore",
+    "location" : "Rua dos Pets",
+    "zipCode" : "11111111",
+    "city" : "Miami",
+    "state" : "Florida",
+    "phone" : "123456789"
+}

@@ -1,0 +1,56 @@
+Resources:
+    RouteTablePublic:        
+        Type: AWS::EC2::RouteTable
+        Properties:
+            VpcId: !ImportValue VPCId
+            Tags:
+                - Key: Name
+                  Value: route-table-public
+                - Key: networking
+                  Value: internet-gateway      
+
+    RouteTablePrivate:
+        Type: AWS::EC2::RouteTable
+        Properties:
+            VpcId: !ImportValue VPCId
+            Tags:
+                - Key: Name
+                  Value: route-table-private
+                - Key: networking
+                  Value: internet-gateway      
+
+## RouteTablePublic
+    AttachGateway:
+        Type: AWS::EC2::VPCGatewayAttachment
+        Properties:
+            VpcId: !ImportValue VPCId
+            InternetGatewayId: !ImportValue InternetGatewayId
+
+    InternetGatewayRoute:
+        Type: AWS::EC2::Route
+        Properties:
+            RouteTableId: !Ref RouteTablePublic
+            DestinationCidrBlock: 0.0.0.0/0
+            GatewayId: !ImportValue InternetGatewayId
+
+
+    SubnetRouteTableAssociationPublic:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+            SubnetId: !ImportValue SubnetPublic1A
+            RouteTableId: !Ref RouteTablePublic
+    
+    SubnetRouteTableAssociationPrivate:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+            SubnetId: !ImportValue SubnetPrivate1B
+            RouteTableId: !Ref RouteTablePrivate
+
+
+Outputs:
+
+    RouteTablePrivateId:
+        Description: RouteTable
+        Value: !Ref RouteTablePrivate
+        Export:
+            Name: RouteTablePrivateId

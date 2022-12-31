@@ -1,0 +1,35 @@
+Resources:
+    Vpc:
+        Type: AWS::EC2::VPC
+        Properties:
+            CidrBlock: 10.0.0.0/16
+            EnableDnsSupport: true
+            EnableDnsHostnames: true
+            InstanceTenancy: default
+            Tags:
+                - Key: Name
+                  Value: !Ref AWS::StackName
+                - Key: networking
+                  Value: vpc
+
+    InternetGateway:
+        Type: AWS::EC2::InternetGateway
+        Properties:
+            Tags:
+                - Key: Name
+                  Value: internet-gateway           
+                - Key: networking
+                  Value: internet-gateway           
+Outputs:
+
+    InternetGatewayId:
+        Description: Internet Gateway Id Exported
+        Value: !Ref InternetGateway
+        Export:
+            Name: InternetGatewayId
+
+    VPCId:
+        Description: VPC Id Exported
+        Value: !Ref Vpc
+        Export:
+            Name: VPCId

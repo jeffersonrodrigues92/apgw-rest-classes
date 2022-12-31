@@ -1,0 +1,37 @@
+Resources:
+    SubnetPublic1A:
+        Type: AWS::EC2::Subnet
+        Properties:
+          VpcId: !ImportValue VPCId
+          CidrBlock: 10.0.0.0/24
+          AvailabilityZone: us-east-1a
+          Tags:
+            - Key: Name
+              Value: subnet-public-1a
+            - Key: networking
+              Value: subnet
+
+    SubnetPrivate1B:
+        Type: AWS::EC2::Subnet
+        Properties:
+            VpcId: !ImportValue VPCId
+            CidrBlock: 10.0.1.0/24
+            AvailabilityZone: us-east-1b
+            Tags:
+                - Key: Name
+                  Value: subnet-private-1b
+                - Key: networking
+                  Value: subnet
+
+Outputs:
+    SubnetPublic1A:
+        Description: SubnetId Exported
+        Value: !Ref SubnetPublic1A
+        Export:
+            Name: SubnetPublic1A
+
+    SubnetPrivate1B:
+        Description: SubnetId Exported
+        Value: !Ref SubnetPrivate1B
+        Export:
+            Name: SubnetPrivate1B
