@@ -1,22 +1,9 @@
-1. Remover Cors da API Gateway
-
-2. Teste de Cors
-https://cors-test.codehappy.dev/
-
-3. Adicionar CORS '*'
-
-4. Especificar Dominio
-
-5. Testando pelo Github Site
-
-6. Acessar ge.globo.com
-
 function main() 
 {
     console.log("cors-test");
     $.ajax
     ({
-        url: "Adicionar a url da sua API aqui!",
+        url: "A URL DO SUA API AQUI",
         success: function(data) 
         {
             console.log(data);
