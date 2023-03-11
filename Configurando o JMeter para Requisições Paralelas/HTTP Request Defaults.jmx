@@ -30,7 +30,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">j86vzkurd2.execute-api.us-east-1.amazonaws.com</stringProp>
+          <stringProp name="HTTPSampler.domain">&lt;coloque o DNS da sua API aqui&gt;</stringProp>
           <stringProp name="HTTPSampler.port">443</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -53,7 +53,7 @@
             </elementProp>
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">X-API-Key</stringProp>
-              <stringProp name="Header.value">PgjpsLXsjy2hHuiOQP7zI7WhmSk5u2i14lYnhvg2</stringProp>
+              <stringProp name="Header.value">&lt;Coloque sua API Key aqui&gt;</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
